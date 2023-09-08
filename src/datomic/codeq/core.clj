@@ -534,6 +534,9 @@
         (run-analyzers conn))
       (println "Usage: datomic.codeq.core db-uri [commit-name]")))
 
+(comment
+  (main "datomic:mem://git" "master"))
+
 (defn -main
   [& args]
   (apply main args)
