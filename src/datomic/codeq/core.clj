@@ -22,7 +22,8 @@
 (def schema
      [
       ;;tx attrs
-      {:db/valueType :db.type/ref
+      {:db/ident :tx/commit
+       :db/valueType :db.type/ref
        :db/cardinality :db.cardinality/one
        :db/doc "Associate tx with this git commit"}
 
