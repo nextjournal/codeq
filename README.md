@@ -6,7 +6,7 @@
 
 Clone the **codeq** repo. Then (in it) run:
 
-    lein uberjar
+    clj -M -m datomic.codeq.core
 
 Get [Datomic Free](http://www.datomic.com/get-datomic.html)
 
