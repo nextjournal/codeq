@@ -1,4 +1,5 @@
 /.cpcache
+/.clerk
 /.nrepl-port
 /target
 /lib

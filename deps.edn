@@ -1,3 +1,4 @@
 {:deps {com.datomic/peer {:mvn/version "1.0.6735"}
         commons-codec/commons-codec {:mvn/version "1.7"}
-        org.clojure/clojure {:mvn/version "1.11.1"}}}
+        org.clojure/clojure {:mvn/version "1.11.1"}
+        io.github.nextjournal/clerk {:git/sha "0dae460df026080b1b3c923784af579ce7a6bc00"}}}
