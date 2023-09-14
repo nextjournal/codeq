@@ -1,7 +1,9 @@
 (ns explore
-  {:nextjournal.clerk/budget nil}
-  (:require [datomic.codeq.core :as codeq]
+  {:nextjournal.clerk/no-cache true
+   :nextjournal.clerk/budget 100}
+  (:require [clojure.datafy :as datafy]
             [datomic.api :as d]
+            [datomic.codeq.core :as codeq]
             [nextjournal.clerk :as clerk]))
 
 (def conn
@@ -30,4 +32,18 @@
 ^{::clerk/viewer clerk/table}
 (filterv #(> (:db/id %) 64) resolved-idents)
 
-codeq/main
+(def commit-entity
+  (d/entity db [:git/sha "285bb99daacb8842063d627a8bd6265af1182752"]))
+
+(def a-commit
+  (d/touch commit-entity))
+
+(datafy/datafy commit-entity)
+
+(datafy/nav commit-entity :commit/author commit-author)
+
+
+#_(nextjournal.clerk.viewer/present
+   (clerk/with-viewers (clerk/add-viewers [{:pred (fn [x] (instance? datomic.query.EntityMap x))
+                                            :transform-fn (clerk/update-val)}])
+     (d/entity db [:git/sha "285bb99daacb8842063d627a8bd6265af1182752"])))
